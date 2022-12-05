@@ -63,14 +63,17 @@ return(
 <Container>
 <h4 className={classes['title-images']}>Album 2</h4>
 <ImageHoverZoom source='https://prasadyash2411.github.io/ecom-website/img/Album%203.png' />
+<ul>{productsArr[1].price}<Addcartbutton /></ul>
 </Container>
 <Container>
 <h4 className={classes['title-images']}>Album 3</h4>
       <ImageHoverZoom source='https://prasadyash2411.github.io/ecom-website/img/Album%202.png' />
+      <ul>{productsArr[2].price}<Addcartbutton /></ul>
 </Container>
 <Container>
 <h4 className={classes['title-images']}>Album 4</h4>
       <ImageHoverZoom source='https://prasadyash2411.github.io/ecom-website/img/Album%204.png' />
+      <ul>{productsArr[3].price}<Addcartbutton /></ul>
 </Container>
 </section>
 )
