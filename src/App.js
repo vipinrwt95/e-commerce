@@ -1,19 +1,16 @@
 import React from 'react';
-import './App.css';
-import CardTitle from './Components/UI/UI/CardTitle';
-import LowerBar from './Components/UI/UI/LowerBar';
-import MusicContainer from './Components/UI/UI/MusicContainer';
-import UpperBar from './Components/UI/UI/UpperBar.js';
+import { Button } from 'react-bootstrap';
 
+import Navigation from './components/common/Navigation.js';
+import Store from './components/Pages/Store.js';
 
 const App=()=> {
   return (
     <>
-    <UpperBar></UpperBar>
-    <CardTitle/>
-    <MusicContainer />
-    </>
-  );
+   <Navigation />
+   <Store />
+   </>
+   )
 }
 
 export default App;
