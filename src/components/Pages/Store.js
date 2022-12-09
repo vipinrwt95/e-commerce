@@ -1,7 +1,9 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Button, Container,Image } from "react-bootstrap";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CartContext from "../../store/CartContext";
+import AddtoCart from "./AddtoCart";
 
 
 
@@ -49,19 +51,19 @@ const productsArr = [
     
     ]
 
-    const Store=()=>
+    const Store=(props)=>
     {
-      
-   return(
+    
+return(
     <Container>
         <h1 align='center' style={{font:'menu'}}><b>MUSIC</b></h1>
      <div>
         {
          productsArr.map(item=>
             
-         <Row>
+         <Row key={item.title}>
          <Col><Image src={item.imageUrl}/></Col>
-         <Row><Col>{item.price}</Col><Col><Button variant='info'>ADD TO CART</Button></Col></Row>  
+         <Col>{item.price}</Col><Col><AddtoCart value={item}/></Col> 
          </Row>   )   
         }
         </div>   

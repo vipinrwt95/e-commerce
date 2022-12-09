@@ -1,4 +1,4 @@
-import React,{useState,useRef} from "react"
+import React,{useState,useRef,useContext} from "react"
 import   Navbar  from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -6,10 +6,21 @@ import { Button,Card } from "react-bootstrap";
 import Cart from "../Cart/Cart";
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
+import CartContext from "../../store/CartContext";
 
 const Navigation = () => {
   // Toogle Menu
   const[Cartstatus,changeCartstatus]=useState(false)
+  const ctx=useContext(CartContext);
+  let totalq=0;
+  if(ctx.items.length>0)
+  {
+    ctx.items.map((item=>{
+       totalq=item.quantity+totalq;
+    }))
+    console.log(totalq);
+  }
+  
   const[target,setTarget]=useState(null)
   const ref=useRef(null);
  const CartHandler=(event)=>
@@ -28,8 +39,15 @@ const Navigation = () => {
             <Nav.Link href="#about">ABOUT</Nav.Link>
             
           </Nav>
-          <Button variant="outline-success" onClick={CartHandler}>CART - 0</Button>
-          <div ref={ref}>
+          <Button variant="outline-success" onClick={CartHandler}>CART-{totalq}</Button>
+          </Container>
+      </Navbar>
+  <Card bg="secondary">
+     <div className="card-body">
+     <h1 align="center">The Generics</h1> 
+     </div>
+  </Card>
+  <div ref={ref}>
           <Overlay
         show={Cartstatus}
         target={target}
@@ -40,19 +58,11 @@ const Navigation = () => {
       >
         <section style={{backgroundColor:"white"}} id="popover-contained">
           
-            <Cart></Cart>
+            <Cart onClose={CartHandler} ></Cart>
           
         </section>
       </Overlay>
        </div>
-          </Container>
-      </Navbar>
-  <Card bg="secondary">
-     <div className="card-body">
-     <h1 align="center">The Generics</h1> 
-     </div>
-     
-</Card>  
 
     </>
   )

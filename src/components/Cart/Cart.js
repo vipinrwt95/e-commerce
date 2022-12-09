@@ -1,69 +1,34 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { Card, Container,Image } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CartContext from '../../store/CartContext';
 
 
-const Cart = () => {
-const cartElements = [
-
-    {
-    
-    title: 'Colors',
-    
-    price: 100,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-    
-    quantity: 2,
-    
-    },
-    
-    {
-    
-    title: 'Black and white Colors',
-    
-    price: 50,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-    
-    quantity: 3,
-    
-    },
-    
-    {
-    
-    title: 'Yellow and Black Colors',
-    
-    price: 70,
-    
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-    
-    quantity: 1,
-    
-    }
-    
-    ]
-
- 
+const Cart = (props) => {
+  
+  const ctx=useContext(CartContext);
   return (
-    <section style={{display:'block'}} fluid>
-      <Container  style={{width:'5'}}>
-      <div><h1 align="center">CART</h1><Button className='right' padding variant='light'>X</Button></div>
+    <section style={{display:'block'}} width="50" >
+      <Container>
+      <div><h1 align="center">CART</h1><Button className='right'  variant='light' onClick={props.onClose}>X</Button></div>
       <Row>
-      <Col xs={6}><h2>ITEM</h2></Col>
-      <Col><h2>PRICE</h2></Col>  
-      <Col><h2>QUANTITY</h2></Col>
+      <Col xs={3}>ITEM</Col>
+      <Col>PRICE</Col>  
+      <Col>QUANTITY</Col>
       </Row>
-      <div>{cartElements.map(item=>
-      <Row>
-      <Col xs={6}><Image fluid src={item.imageUrl} />{item.title}</Col>
+       {<div>{ctx.items.map(item=>
+      <Row id={item.title}>
+      <Col xs={3}><Image fluid src={item.imageUrl} width="50" height="50" />{item.title}</Col>
       <Col>{item.price}</Col>  
-      <Col>{item.quantity}<Button variant='danger'>REMOVE</Button></Col>
+      <Col>{item.quantity}<Button className='btn-sm' variant='danger'>REMOVE</Button></Col>
       </Row>)}
-      </div>
+      </div>}
+      <div className="d-grid gap-2">
+      <Button align="center" variant="warning" size="lg">PURCHASE NOW</Button>
+      </div> 
       </Container>
       </section>
  )
