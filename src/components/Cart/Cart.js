@@ -10,6 +10,10 @@ import CartContext from '../../store/CartContext';
 const Cart = (props) => {
   
   const ctx=useContext(CartContext);
+  const purchaseHandler=()=>
+  {
+    alert('Thanks for purchasing,Will be delivered soon')
+  }
   return (
     <section style={{display:'block'}} width="50" >
       <Container>
@@ -27,7 +31,7 @@ const Cart = (props) => {
       </Row>)}
       </div>}
       <div className="d-grid gap-2">
-      <Button align="center" variant="warning" size="lg">PURCHASE NOW</Button>
+      {ctx.items.length>0 &&<Button align="center" variant="warning" size="lg" onClick={purchaseHandler}>PURCHASE NOW</Button>}
       </div> 
       </Container>
       </section>

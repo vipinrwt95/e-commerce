@@ -7,12 +7,14 @@ import Cart from "../Cart/Cart";
 import Overlay from 'react-bootstrap/Overlay';
 import Popover from 'react-bootstrap/Popover';
 import CartContext from "../../store/CartContext";
+import { LinkContainer } from 'react-router-bootstrap';
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
-  // Toogle Menu
-  const[Cartstatus,changeCartstatus]=useState(false)
+   const[Cartstatus,changeCartstatus]=useState(false)
   const ctx=useContext(CartContext);
   let totalq=0;
+  console.log(ctx.items);
   if(ctx.items.length>0)
   {
     ctx.items.map((item=>{
@@ -34,11 +36,10 @@ const Navigation = () => {
     <Navbar bg="dark" variant="dark">
     <Container>
     <Nav className="me-auto">
-            <Nav.Link href="#home">HOME</Nav.Link>
-            <Nav.Link href="#store">STORE</Nav.Link>
-            <Nav.Link href="#about">ABOUT</Nav.Link>
-            
-          </Nav>
+      <NavLink to="/home">HOME</NavLink>
+      <NavLink to="/store">STORE</NavLink>
+      <NavLink to="/about">ABOUT</NavLink>
+      </Nav>
           <Button variant="outline-success" onClick={CartHandler}>CART-{totalq}</Button>
           </Container>
       </Navbar>
