@@ -62,8 +62,8 @@ return(
          productsArr.map(item=>
             
          <Row key={item.title}>
-         <Col><Image src={item.imageUrl}/></Col>
-         <Col>{item.price}</Col><Col><AddtoCart value={item}/></Col> 
+         <Col><Image src={item.imageUrl}width="110" height="110"/></Col>
+         <Col>${item.price}</Col><Col><AddtoCart value={item}/></Col> 
          </Row>   )   
         }
         </div>   

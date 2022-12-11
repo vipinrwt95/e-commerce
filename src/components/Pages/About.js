@@ -1,7 +1,10 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import kw from "../../filestoadd/kw.jpg";
-
+import { Navbar } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import { Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 const About=()=>
 {
 
@@ -9,6 +12,20 @@ const About=()=>
 
  return (
    <div> 
+    <Navbar bg="dark" variant="dark">
+    <Container>
+    <Nav className="me-auto">
+      <NavLink to="/home">HOME</NavLink>
+      <NavLink to="/store">STORE</NavLink>
+      <NavLink to="/about">ABOUT</NavLink>
+      </Nav>
+        </Container>
+      </Navbar>
+      <Card bg="secondary">
+     <div className="card-body">
+     <h1 align="center">The Generics</h1> 
+     </div>
+  </Card>
    <Card>
     <Card.Img src={kw} />
     <Card.ImgOverlay>
