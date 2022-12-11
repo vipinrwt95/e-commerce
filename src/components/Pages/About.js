@@ -18,6 +18,7 @@ const About=()=>
       <NavLink to="/home">HOME</NavLink>
       <NavLink to="/store">STORE</NavLink>
       <NavLink to="/about">ABOUT</NavLink>
+      <NavLink to="/contact">CONTACT US</NavLink>
       </Nav>
         </Container>
       </Navbar>
