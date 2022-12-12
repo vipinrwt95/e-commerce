@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CartContext from "../../store/CartContext";
 import AddtoCart from "./AddtoCart";
+import { Link } from "react-router-dom";
 
 
 
@@ -57,12 +58,16 @@ const productsArr = [
 return(
     <Container>
         <h1 align='center' style={{font:'menu'}}><b>MUSIC</b></h1>
+        <Row>
+         <Col><h2>ALBUM</h2></Col>
+         <Col><h2>PRICE</h2></Col> 
+         <Col></Col>
+        </Row>
      <div>
         {
          productsArr.map(item=>
-            
-         <Row key={item.title}>
-         <Col><Image src={item.imageUrl}width="110" height="110"/></Col>
+         <Row id={item.title}>
+         <Col><Link to={item.title}><Image src={item.imageUrl}width="110" height="110"/></Link></Col>
          <Col>${item.price}</Col><Col><AddtoCart value={item}/></Col> 
          </Row>   )   
         }
