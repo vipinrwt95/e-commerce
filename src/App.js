@@ -1,12 +1,14 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import {  Route,Routes } from 'react-router-dom';
+import {  Route,Routes,Switch } from 'react-router-dom';
 import Navigation from './components/common/Navigation.js';
 import Store from './components/Pages/Store.js';
 import About from './components/Pages/About.js';
 import CartProvider from './store/CartProvide.js';
 import Home from './components/Pages/Home.js';
 import Contact from './components/Pages/Contact.js';
+import ProductDetail from './components/Pages/ProductDetail.js';
+
 
 const App=()=> {
   
@@ -24,11 +26,12 @@ const App=()=> {
    <div>
    <CartProvider>
   <Routes>
-   <Route path='/store'element={<><Navigation /><Store /></>}></Route>
+   <Route path='/store'element={<><Navigation /><Store /></>} exact></Route>
    <Route path='/about'element={<About />}></Route>
    <Route path='/home'element={<Home />}></Route>
    <Route path='/contact'element={<Contact onAddperson={sendDataHandler} />}></Route>
    <Route path='/' element={<Home />}></Route>
+   <Route path='/store/:productId' element={<ProductDetail />} exact></Route>
    </Routes>
    </CartProvider>
  </div> 
