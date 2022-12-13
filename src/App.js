@@ -8,6 +8,8 @@ import CartProvider from './store/CartProvide.js';
 import Home from './components/Pages/Home.js';
 import Contact from './components/Pages/Contact.js';
 import ProductDetail from './components/Pages/ProductDetail.js';
+import Login from './components/Pages/LogIn.js';
+import LogIn from './components/Pages/LogIn.js';
 
 
 const App=()=> {
@@ -32,6 +34,7 @@ const App=()=> {
    <Route path='/contact'element={<Contact onAddperson={sendDataHandler} />}></Route>
    <Route path='/' element={<Home />}></Route>
    <Route path='/store/:productId' element={<ProductDetail />} exact></Route>
+   <Route path='/login' element={<LogIn />} exact></Route>
    </Routes>
    </CartProvider>
  </div> 
