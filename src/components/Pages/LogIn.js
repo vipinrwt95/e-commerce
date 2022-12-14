@@ -11,7 +11,7 @@ const LogIn = () => {
   const passwordInputRef=useRef();
   const [isLogin, setIsLogin] = useState(true);
   const authctx=useContext(TokenContext);
-  const History=useNavigate();
+  const navigate=useNavigate();
    const submitHandler=(event)=>
   {
     event.preventDefault();
@@ -36,10 +36,14 @@ const LogIn = () => {
         if(res.ok)
         {
           return res.json().then(data=>{
-            authctx.login(data.idToken)
-            History(-5)
             
-          })
+            authctx.login(data.idToken)
+         
+          navigate('/store', {replace: true});
+         
+         console.log(authctx.tokenid)
+            }
+          )
         }
         else{
           return res.json().then(data=>{

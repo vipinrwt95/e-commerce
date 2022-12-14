@@ -15,16 +15,20 @@ export const TokenProvider=(props)=>
 {
   const initailToken=localStorage.getItem('token');
   const [tokenid,updateToken]=useState(initailToken);
-  let userIsLoggedIn=!!tokenid;
+  const userIsLoggedIn=!!tokenid;
 
 const loginHandler=(token)=>{
+  
   updateToken(token)
   localStorage.setItem('token',token);
+  
 }
 const logoutHandler=()=>
-{
+{   
+    
     updateToken(null);
     localStorage.removeItem('token');
+    
 }
 const tokenContext={
     tokenid:tokenid,

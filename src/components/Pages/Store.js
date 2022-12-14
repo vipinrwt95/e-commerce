@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import CartContext from "../../store/CartContext";
 import AddtoCart from "./AddtoCart";
 import { Link } from "react-router-dom";
+import TokenContext from "../../store/TokenContext";
 
 
 
@@ -54,6 +55,12 @@ const productsArr = [
 
     const Store=(props)=>
     {
+      const ctx=useContext(TokenContext);
+      console.log(ctx.isLoggedIn);
+      const logoutHandler=()=>
+      {
+        ctx.logout();
+      }
     
 return(
     <Container>
@@ -72,6 +79,7 @@ return(
          </Row>   )   
         }
         </div>   
+        <Button variant="success" onClick={logoutHandler}>LOGOUT</Button>
      </Container>
    )
  }
