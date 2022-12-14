@@ -11,6 +11,7 @@ const LogIn = () => {
   const passwordInputRef=useRef();
   const [isLogin, setIsLogin] = useState(true);
   const authctx=useContext(TokenContext);
+ 
   const navigate=useNavigate();
    const submitHandler=(event)=>
   {
@@ -38,10 +39,12 @@ const LogIn = () => {
           return res.json().then(data=>{
             
             authctx.login(data.idToken)
+            authctx.setEmail(data.email);
+            
          
           navigate('/store', {replace: true});
          
-         console.log(authctx.tokenid)
+        
             }
           )
         }

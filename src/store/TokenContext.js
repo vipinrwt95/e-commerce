@@ -1,6 +1,7 @@
 import React,{useState}from "react";
 const TokenContext=React.createContext({
 tokenid:'',
+emailid:'',
 isLoggedIn:false,
 login:(token)=>
 {
@@ -9,13 +10,19 @@ login:(token)=>
 logout:()=>
 {
 
+},
+setEmail:(email)=>
+{
+
 }
 });
 export const TokenProvider=(props)=>
 {
   const initailToken=localStorage.getItem('token');
   const [tokenid,updateToken]=useState(initailToken);
+  const [email,updateEmail]=useState('');
   const userIsLoggedIn=!!tokenid;
+  let enteredemail;
 
 const loginHandler=(token)=>{
   
@@ -30,11 +37,17 @@ const logoutHandler=()=>
     localStorage.removeItem('token');
     
 }
+const setEmailHandler=(email)=>
+{
+     updateEmail(email)
+}
 const tokenContext={
     tokenid:tokenid,
+    emailid:email,
     isLoggedIn:userIsLoggedIn,
     login:loginHandler,
-    logout:logoutHandler
+    logout:logoutHandler,
+    setEmail:setEmailHandler
 }
 
  return(

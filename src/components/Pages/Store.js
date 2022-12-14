@@ -6,6 +6,7 @@ import CartContext from "../../store/CartContext";
 import AddtoCart from "./AddtoCart";
 import { Link } from "react-router-dom";
 import TokenContext from "../../store/TokenContext";
+import ImageHoverZoom from "./ImageHoverZoom";
 
 
 
@@ -64,6 +65,7 @@ const productsArr = [
     
 return(
     <Container>
+      <Button variant="success" onClick={logoutHandler}>LOGOUT</Button>
         <h1 align='center' style={{font:'menu'}}><b>MUSIC</b></h1>
         <Row>
          <Col><h2>ALBUM</h2></Col>
@@ -74,12 +76,12 @@ return(
         {
          productsArr.map(item=>
          <Row id={item.title}>
-         <Col><Link to={item.title}><Image src={item.imageUrl}width="110" height="110"/></Link></Col>
+         <Col><Link to={item.title}><ImageHoverZoom imagepath={item.imageUrl}width="110" height="110"/></Link></Col>
          <Col>${item.price}</Col><Col><AddtoCart value={item}/></Col> 
          </Row>   )   
         }
         </div>   
-        <Button variant="success" onClick={logoutHandler}>LOGOUT</Button>
+        
      </Container>
    )
  }

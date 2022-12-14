@@ -2,6 +2,7 @@
 import { Container, Image,Carousel, Button } from "react-bootstrap";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ImageHoverZoom from "./ImageHoverZoom";
 
 
 const Details=(props)=>
@@ -15,15 +16,15 @@ return(
   <Carousel>
       <Carousel.Item>
       <Image src={props.data.imageUrl} width={200}></Image> 
-      <p>ANGLE 1</p> 
+      
        </Carousel.Item>
       <Carousel.Item>
       <Image src={props.data.imageUrl} width={200}></Image>  
-      <p>ANGLE 1</p> 
+      
       </Carousel.Item>
       <Carousel.Item>
       <Image src={props.data.imageUrl} width={200}></Image> 
-      <p>ANGLE 1</p> 
+       
       </Carousel.Item>
       <Carousel.Item>
       <Image src={props.data.imageUrl} width={200}></Image>   
@@ -33,7 +34,7 @@ return(
   <h1 align="center">PRODUCT</h1>
     <section align="center">
         <h3>{props.data.title}</h3>
-    <Image fluid src={props.data.imageUrl}></Image>
+    <ImageHoverZoom imagepath={props.data.imageUrl}></ImageHoverZoom>
     
     </section>
     </Container>
