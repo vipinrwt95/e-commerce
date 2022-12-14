@@ -14,10 +14,38 @@ const CartProvider=props=>
        alert('already added') 
      }  
     }
+  const updateItemHandler=(item)=>
+  { 
+    items.forEach((ele)=>
+    {
+      if(ele.id===item.id)
+      {
+        ele.quantity+=1;
+      }
+
+    }) 
+    updateItems([...items])
+
+  }
+const deleteItemHandler=(item)=>
+   { 
+     const newitems=items.filter(i=>i.id!=item.id);   
+   updateItems([...newitems]);
+}
+
+const setEmailHandler=(email)=>
+{
+  
+}
+
+
 const cartcontext={
       items:items,
       totalAmount:0,
       addItem:addItemToCartHandler,
+      updateItem:updateItemHandler,
+      deleteItem:deleteItemHandler,
+      
     };
 
 return(
