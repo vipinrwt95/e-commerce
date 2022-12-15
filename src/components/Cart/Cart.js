@@ -10,6 +10,7 @@ import CartContext from '../../store/CartContext';
 const Cart = (props) => {
   
   const ctx=useContext(CartContext);
+
   let totalamount=0;
   const amount=ctx.items.map((item=>
     {  
@@ -44,9 +45,9 @@ const Cart = (props) => {
       <Col>QUANTITY</Col>
       <Col></Col>
       </Row>
-       {<div>{ctx.items.map(item=>
+       {<div>{props.data.map(item=>
       <Row id={item.title}>
-      <Col xs={3}><Image fluid src={item.imageUrl} width="50" height="50" />{item.title}</Col>
+      <Col xs={3}><Image fluid src={item.imageurl} width="50" height="50" />{item.title}</Col>
       <Col>{item.price}</Col>  
       <Col><Form><input type="number" defaultValue={item.quantity} min="1" onChange={quantityHandler.bind(null,item)}></input></Form></Col>
       <Col><Button className='btn-sm' variant='danger' onClick={cartItemRemoveHandler.bind(null,item)}>REMOVE</Button></Col>

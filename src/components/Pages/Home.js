@@ -54,12 +54,8 @@ const Home=()=>
     <Col xs={6}>Hari Madhushala</Col>
     <Col><Button size="sm">BUY TICKETS</Button></Col>
    </Row>
-   <Row>
-    <Col>AUG5</Col>
-    <Col>TORONTO</Col>
-    <Col xs={6}>BUDWEISER STAGE</Col>
-    <Col><Button size="sm">BUY TICKETS</Button></Col>
-   </Row>
+ 
+    
    </Container>
    </div>
    <Card bg="success"style={{ height: "8rem" }}> 

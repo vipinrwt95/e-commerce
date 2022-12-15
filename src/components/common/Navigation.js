@@ -13,8 +13,8 @@ import { NavLink } from "react-router-dom";
 const Navigation = () => {
    const[Cartstatus,changeCartstatus]=useState(false)
   const ctx=useContext(CartContext);
+  const [cartdata,updateCartdata]=useState([]);
   let totalq=0;
-  console.log(ctx.items);
   if(ctx.items.length>0)
   {
     ctx.items.map((item=>{
@@ -27,10 +27,22 @@ const Navigation = () => {
   const ref=useRef(null);
  const CartHandler=(event)=>
  {
+  fetch('https://crudcrud.com/api/4431ca8a840a462f80d795bffbc706da/cartvipinrawatgmailcom').
+  then(res=>
+    {
+      if(res.ok)
+      {
+        res.json().then(data=>
+          {
+           updateCartdata(data); 
+          
+          })
+      }
+   });
   changeCartstatus((prev)=>!prev);
   setTarget(event.target)
  }
-
+   
   return (
     <>
     <Navbar bg="dark" variant="dark">
@@ -61,7 +73,7 @@ const Navigation = () => {
       >
         <section style={{backgroundColor:"white"}} id="popover-contained">
           
-            <Cart onClose={CartHandler} ></Cart>
+            <Cart onClose={CartHandler} data={cartdata} ></Cart>
           
         </section>
       </Overlay>
